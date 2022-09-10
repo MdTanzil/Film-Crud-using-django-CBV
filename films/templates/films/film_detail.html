@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% load sorl_thumbnail %} {% block content %}
+
+<div class="container mt-5" style="width: 70%">
+  <div class="col">
+    <h1 class="text-center">Film Details</h1>
+    <div class="d-flex justify-content-center">
+
+      <div class="card" style="width: 18rem">
+       
+        <img class="card-img-top" src="{{ film.poster.url }}" alt="Card image cap" />
+
+
+        <div class="card-body">
+          <h5 class="card-title">{{ film.title }}</h5>
+          <p class="card-text">
+            Duration : {{ film.length }}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Relese Year {{film.year}}</li>
+          <li class="list-group-item">IMDB Rating {{film.score}}</li>
+          <li class="list-group-item">Genre {{film.genre}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <a
+        href="{% url 'films:all' %}"
+        class="d-block btn btn-primary btn-lg my-5"
+        >BACK</a
+      >
+    </div>
+  </div>
+</div>
+
+{% endblock %}
